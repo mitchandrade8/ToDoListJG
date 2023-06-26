@@ -10,6 +10,8 @@ import SwiftUI
 struct DetailView: View {
     @Environment(\.dismiss) private var dismiss
     
+    var passedValue: String
+    
     var body: some View {
         VStack {
             Image(systemName: "dollarsign")
@@ -18,7 +20,7 @@ struct DetailView: View {
                 .foregroundColor(.green)
                 .frame(width: 100)
             
-            Text("Get to the bag")
+            Text("Get to the bag\n And you passed over the value \(passedValue)")
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
             
@@ -34,7 +36,6 @@ struct DetailView: View {
     }
 }
 
-
 #Preview {
-    DetailView()
+    DetailView(passedValue: "Item 1")
 }
