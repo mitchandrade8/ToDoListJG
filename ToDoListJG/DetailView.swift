@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct DetailView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
-        Text("Welcome to the New View!")
+        VStack {
+            Image(systemName: "dollarsign")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(.green)
+                .frame(width: 100)
+            
+            Text("Get to the bag")
+                .font(.largeTitle)
+                .multilineTextAlignment(.center)
+            
+            Spacer()
+            
+            Button("Back") {
+                dismiss()
+            }
+            .buttonStyle(.borderedProminent)
+        }
+        .padding()
+        .navigationBarBackButtonHidden()
     }
 }
 
