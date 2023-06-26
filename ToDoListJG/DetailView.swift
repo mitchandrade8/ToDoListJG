@@ -9,30 +9,23 @@ import SwiftUI
 
 struct DetailView: View {
     @Environment(\.dismiss) private var dismiss
+    @State private var toDo = ""
+    @State private var reminderIsOn = false
+    @State private var dueDate = Date.now + (60*60*8)
     
     var passedValue: String
     
     var body: some View {
-        VStack {
-            Image(systemName: "dollarsign")
-                .resizable()
-                .scaledToFit()
-                .foregroundColor(.green)
-                .frame(width: 100)
+        List {
+            TextField("Enter to do here", text: $toDo)
+                .font(.title)
+                .textFieldStyle(.roundedBorder)
             
-            Text("Get to the bag\n And you passed over the value \(passedValue)")
-                .font(.largeTitle)
-                .multilineTextAlignment(.center)
-            
-            Spacer()
-            
-            Button("Back") {
-                dismiss()
-            }
-            .buttonStyle(.borderedProminent)
+            Toggle("Set Reminder", isOn: $reminderIsOn)
+                .padding(.top)
+            DatePicker("Date", selection: $dueDate)
         }
-        .padding()
-        .navigationBarBackButtonHidden()
+        .listStyle(.plain)
     }
 }
 
