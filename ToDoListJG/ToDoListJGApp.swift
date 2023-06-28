@@ -14,6 +14,7 @@ struct ToDoListJGApp: App {
     var body: some Scene {
         WindowGroup {
             ToDoListView()
+                .environmentObject(toDosVM)
         }
     }
 }
