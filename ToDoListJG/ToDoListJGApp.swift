@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct ToDoListJGApp: App {
+    @StateObject var toDosVM = ToDosViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ToDoListView()
